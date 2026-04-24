@@ -1,0 +1,38 @@
+apiVersion: tekton.dev/v1beta1
+
+kind: Task
+
+metadata:
+
+  name: test-and-cleanup
+
+spec:
+
+  steps:
+
+    - name: install
+
+      image: python:3.10
+
+      script: |
+
+        pip install nose
+ 
+    - name: run-tests
+
+      image: python:3.10
+
+      script: |
+
+        nosetests
+ 
+    - name: cleanup
+
+      image: python:3.10
+
+      script: |
+
+        echo "Cleaning up..."
+
+        rm -rf __pycache__
+ 
