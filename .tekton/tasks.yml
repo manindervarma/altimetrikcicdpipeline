@@ -1,38 +1,30 @@
 apiVersion: tekton.dev/v1beta1
-
 kind: Task
-
 metadata:
-
-  name: test-and-cleanup
+  name: nose-test
 
 spec:
-
   steps:
-
     - name: install
-
       image: python:3.10
-
       script: |
-
         pip install nose
- 
-    - name: run-tests
 
+    - name: nose-test
       image: python:3.10
-
       script: |
-
         nosetests
- 
+
+---
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: cleanup
+
+spec:
+  steps:
     - name: cleanup
-
       image: python:3.10
-
       script: |
-
         echo "Cleaning up..."
-
         rm -rf __pycache__
- 
