@@ -5,12 +5,12 @@ metadata:
 spec:
   steps:
     - name: install
-      image: python:3.10
+      image: python:3.8
       script: |
         pip install nose
 
     - name: nose-test
-      image: python:3.10
+      image: python:3.8
       script: |
         nosetests
 
@@ -22,7 +22,7 @@ metadata:
 spec:
   steps:
     - name: cleanup
-      image: python:3.10
+      image: python:3.8
       script: |
         echo "Cleaning up..."
         rm -rf __pycache__
