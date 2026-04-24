@@ -2,7 +2,6 @@ apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
   name: nose-test
-
 spec:
   steps:
     - name: install
@@ -20,7 +19,6 @@ apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
   name: cleanup
-
 spec:
   steps:
     - name: cleanup
